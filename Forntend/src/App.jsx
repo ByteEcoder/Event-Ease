@@ -1,98 +1,35 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import axios from 'axios'
-import { useEffect } from 'react'
 import './App.css'
 
-
 function App() {
-  const [jokes, setJokes] = useState([])
+  const [count, setCount] = useState(0)
 
-  useEffect(()=>{
-    axios.get('/api/')
-    .then((response) =>{
-        setJokes(response.data)
-    }
+  return (
+    <>
+      <div>
+        <a href="https://vite.dev" target="_blank">
+          <img src={viteLogo} className="logo" alt="Vite logo" />
+        </a>
+        <a href="https://react.dev" target="_blank">
+          <img src={reactLogo} className="logo react" alt="React logo" />
+        </a>
+      </div>
+      <h1>Vite + React</h1>
+      <div className="card">
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
+        </button>
+        <p>
+          Edit <code>src/App.jsx</code> and save to test HMR
+        </p>
+      </div>
+      <p className="read-the-docs">
+        Click on the Vite and React logos to learn more
+      </p>
+    </>
   )
-  .catch((error)=>{
-    console.error(error)
-  })
-
-  })
-
- return (
-        <div>
-            <nav class="navbar background">
-              <h1>Event Ease</h1>
-                <ul class="nav-list">
-                    <div class="logo">
-                        
-                    </div>
-                    <li>
-                        <a href="#home">Home</a>
-                    </li>
-                    <li>
-                        <a href="#about">About</a>
-                    </li>
-                    <li>
-                        <a href="#contact">Contact</a>
-                    </li>
-                    <li>
-                        <a href="/logout">logout</a>
-                    </li>
-                </ul>
-
-               
-            </nav>
-
-            <section class="section">
-                <div class="box-main">
-                    <div class="firstHalf">
-                        
-                        <p class="text-small">
-                          
-                        </p>
-                    </div>
-                </div>
-            </section>
-            <section class="section">
-                <div class="box-main">
-                    <div class="secondHalf">
-                        
-                        <p class="text-small">
-                           
-                        </p>
-                    </div>
-                </div>
-            </section>
-            <section class="section">
-                <div class="box-main">
-                    <div class="secondHalf">
-                        
-                        <p class="text-small">
-                           
-                        </p>
-                    </div>
-                </div>
-            </section>
-            <section class="section">
-                <div class="box-main">
-                    <div class="secondHalf">
-                        
-                        <p class="text-small">
-                            
-                        </p>
-                    </div>
-                </div>
-            </section>
-            <footer className="footer">
-                <p className="text-footer">
-                    Copyright ©-All rights are reserved
-                </p>
-            </footer>
-        </div>
-    );
 }
 
 export default App
